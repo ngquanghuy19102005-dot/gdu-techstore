@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chi tiết sản phẩm - GDU TechStore</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="site-logo">
+      <div class="logo-icon">G</div>
+      <span class="logo-text">GDU <span>Tech</span>Store</span>
+    </a>
+    <nav class="site-nav">
+      <ul class="nav-list">
+        <li><a href="index.html">Trang chủ</a></li>
+        <li><a href="products.html">Sản phẩm</a></li>
+        <li><a href="cart.html">Giỏ hàng</a></li>
+        <li><a href="contact.html">Liên hệ</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <div class="search-bar">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input type="search" placeholder="Tìm kiếm..." aria-label="Tìm kiếm">
+      </div>
+      <a href="cart.html" class="cart-icon" aria-label="Giỏ hàng">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        <span class="cart-count hidden">0</span>
+      </a>
+      <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu">
+  <ul class="nav-list">
+    <li><a href="index.html">🏠 Trang chủ</a></li>
+    <li><a href="products.html">📦 Sản phẩm</a></li>
+    <li><a href="cart.html">🛒 Giỏ hàng</a></li>
+    <li><a href="contact.html">📞 Liên hệ</a></li>
+  </ul>
+</div>
+
+<main>
+  <div id="loading-state" style="text-align:center;padding:6rem 2rem;color:var(--gray-500)">
+    <div style="font-size:3rem;margin-bottom:1rem;animation:float 2s ease-in-out infinite">💻</div>
+    <p>Đang tải sản phẩm...</p>
+  </div>
+
+  <div id="error-state" style="display:none;text-align:center;padding:6rem 2rem">
+    <div style="font-size:4rem;margin-bottom:1.5rem;opacity:.4">😕</div>
+    <h2>Không tìm thấy sản phẩm</h2>
+    <p style="color:var(--gray-600);margin:0.75rem 0 2rem">Sản phẩm không tồn tại hoặc đã bị xóa.</p>
+    <a href="products.html" class="btn btn-primary">← Quay lại danh sách</a>
+  </div>
+
+  <div id="product-detail" style="display:none">
+    <!-- Breadcrumb -->
+    <div style="background:var(--gray-100);padding:1rem 0">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Đường dẫn" style="justify-content:flex-start">
+          <a href="index.html">Trang chủ</a>
+          <span>›</span>
+          <a href="products.html">Sản phẩm</a>
+          <span>›</span>
+          <span id="breadcrumb-name" style="color:var(--gray-700)">Sản phẩm</span>
+        </nav>
+      </div>
+    </div>
+
+    <section style="padding:3rem 0">
+      <div class="container">
+        <div class="detail-grid">
+          <!-- Images -->
+          <div class="detail-images">
+            <div class="detail-main-img">
+              <img id="main-img" src="" alt="" loading="eager">
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0.5rem" id="thumb-gallery">
+              <!-- Thumbnails injected -->
+            </div>
+          </div>
+
+          <!-- Info -->
+          <div class="detail-info">
+            <div class="detail-badge-row" id="badge-row"></div>
+            <h1 class="detail-name" id="product-name">-</h1>
+
+            <div class="detail-rating">
+              <span class="stars" id="product-stars">★★★★★</span>
+              <span id="product-rating-num" style="font-weight:700">5.0</span>
+              <span style="color:var(--gray-400)">|</span>
+              <span id="product-reviews" style="color:var(--gray-500);font-size:.875rem">0 đánh giá</span>
+              <span style="color:var(--gray-400)">|</span>
+              <span id="product-stock" style="color:#22c55e;font-size:.875rem;font-weight:600">Còn hàng</span>
+            </div>
+
+            <div class="detail-price-section">
+              <span class="detail-price" id="product-price">0đ</span>
+              <span class="detail-price-original" id="product-price-orig"></span>
+              <span id="discount-badge" style="background:rgba(233,69,96,.1);color:var(--accent);font-size:.8rem;font-weight:700;padding:.2rem .6rem;border-radius:6px;margin-left:.5rem;display:none"></span>
+            </div>
+
+            <p class="detail-desc" id="product-desc">-</p>
+
+            <div class="detail-specs">
+              <h4>Thông số kỹ thuật</h4>
+              <table class="spec-table" id="spec-table" aria-label="Thông số kỹ thuật sản phẩm">
+                <tbody></tbody>
+              </table>
+            </div>
+
+            <!-- Quantity -->
+            <div class="qty-control" role="group" aria-label="Chọn số lượng">
+              <label for="qty-input">Số lượng:</label>
+              <button class="qty-btn" id="qty-minus" aria-label="Giảm số lượng">−</button>
+              <span class="qty-display" id="qty-display" aria-live="polite">1</span>
+              <button class="qty-btn" id="qty-plus" aria-label="Tăng số lượng">+</button>
+              <span id="stock-info" style="color:var(--gray-500);font-size:.8rem;margin-left:.5rem"></span>
+            </div>
+
+            <!-- Actions -->
+            <div class="detail-actions">
+              <button class="btn btn-primary" id="btn-add-cart">🛒 Thêm vào giỏ hàng</button>
+              <button class="btn btn-dark" id="btn-buy-now">⚡ Mua ngay</button>
+            </div>
+
+            <!-- Trust badges -->
+            <div style="display:flex;gap:1.5rem;margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--gray-200);flex-wrap:wrap">
+              <div style="display:flex;align-items:center;gap:.5rem;font-size:.8rem;color:var(--gray-600)">
+                <span>🛡️</span> Bảo hành 24 tháng
+              </div>
+              <div style="display:flex;align-items:center;gap:.5rem;font-size:.8rem;color:var(--gray-600)">
+                <span>🔄</span> Đổi trả 30 ngày
+              </div>
+              <div style="display:flex;align-items:center;gap:.5rem;font-size:.8rem;color:var(--gray-600)">
+                <span>🚀</span> Giao hàng 2h
+              </div>
+              <div style="display:flex;align-items:center;gap:.5rem;font-size:.8rem;color:var(--gray-600)">
+                <span>✅</span> Chính hãng 100%
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Related Products -->
+        <div style="margin-top:4rem">
+          <div class="section-header">
+            <div class="section-label">Gợi ý</div>
+            <h2 class="section-title">Sản phẩm liên quan</h2>
+          </div>
+          <div id="related-grid" class="products-grid"></div>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:2rem 0;flex-wrap:wrap;gap:1rem">
+      <div class="site-logo">
+        <div class="logo-icon">G</div>
+        <span class="logo-text">GDU <span>Tech</span>Store</span>
+      </div>
+      <p style="color:var(--gray-600);font-size:.875rem">© 2025 GDU TechStore. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<button class="back-to-top" aria-label="Lên đầu trang">↑</button>
+
+<script src="js/utils.js"></script>
+<script>
+  let currentProduct = null;
+  let qty = 1;
+
+  (async function init() {
+    // Get product ID from URL
+    const params = new URLSearchParams(window.location.search);
+    const id = parseInt(params.get('id'));
+
+    if (!id) { showError(); return; }
+
+    const products = await fetchProducts();
+    const product = products.find(p => p.id === id);
+
+    if (!product) { showError(); return; }
+
+    currentProduct = product;
+    renderProduct(product);
+
+    // Related products (same category, excluding current)
+    const related = products.filter(p => p.category === product.category && p.id !== product.id).slice(0, 4);
+    document.getElementById('related-grid').innerHTML = related.map(p => renderProductCard(p)).join('');
+
+    document.getElementById('loading-state').style.display = 'none';
+    document.getElementById('product-detail').style.display = 'block';
+  })();
+
+  function renderProduct(p) {
+    // Update page title & breadcrumb
+    document.title = `${p.name} - GDU TechStore`;
+    document.getElementById('breadcrumb-name').textContent = p.name;
+
+    // Images
+    const mainImg = document.getElementById('main-img');
+    mainImg.src = p.image;
+    mainImg.alt = p.name;
+
+    // Thumbnails (using same image with slight variation via query)
+    const thumbs = [p.image, p.image + '&blur=2', p.image, p.image];
+    document.getElementById('thumb-gallery').innerHTML = thumbs.map((src, i) => `
+      <div style="border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid ${i===0?'var(--accent)':'var(--gray-200)'};" 
+           onclick="switchImg('${src}', this)">
+        <img src="${src}" alt="Ảnh ${i+1}" style="width:100%;aspect-ratio:4/3;object-fit:cover" loading="lazy">
+      </div>`).join('');
+
+    // Badges
+    let badges = '';
+    if (p.badge) badges += `<span class="detail-badge badge-sale">${p.badge}</span>`;
+    if (p.stock <= 5) badges += `<span class="detail-badge" style="background:rgba(239,68,68,.1);color:#dc2626">Sắp hết hàng</span>`;
+    document.getElementById('badge-row').innerHTML = badges;
+
+    // Info
+    document.getElementById('product-name').textContent = p.name;
+    document.getElementById('product-stars').textContent = renderStars(p.rating);
+    document.getElementById('product-rating-num').textContent = p.rating;
+    document.getElementById('product-reviews').textContent = `${p.reviews} đánh giá`;
+    document.getElementById('product-stock').textContent = p.stock > 0 ? `Còn ${p.stock} sản phẩm` : 'Hết hàng';
+    document.getElementById('product-stock').style.color = p.stock > 0 ? '#22c55e' : '#ef4444';
+    document.getElementById('product-price').textContent = formatVND(p.price);
+    document.getElementById('product-desc').textContent = p.description;
+
+    // Original price & discount
+    if (p.originalPrice) {
+      document.getElementById('product-price-orig').textContent = formatVND(p.originalPrice);
+      const disc = Math.round((1 - p.price / p.originalPrice) * 100);
+      const discBadge = document.getElementById('discount-badge');
+      discBadge.textContent = `-${disc}%`;
+      discBadge.style.display = 'inline';
+    }
+
+    // Specs table
+    const tbody = document.querySelector('#spec-table tbody');
+    tbody.innerHTML = Object.entries(p.specs).map(([k, v]) => `
+      <tr><td>${k}</td><td style="color:var(--text-primary);font-weight:500">${v}</td></tr>`).join('');
+
+    // Stock info
+    document.getElementById('stock-info').textContent = `(Còn ${p.stock})`;
+
+    // Qty controls
+    const qtyDisplay = document.getElementById('qty-display');
+    document.getElementById('qty-minus').addEventListener('click', () => {
+      if (qty > 1) { qty--; qtyDisplay.textContent = qty; }
+    });
+    document.getElementById('qty-plus').addEventListener('click', () => {
+      if (qty < p.stock) { qty++; qtyDisplay.textContent = qty; }
+    });
+
+    // Add to cart
+    document.getElementById('btn-add-cart').addEventListener('click', () => {
+      addToCart(p, qty);
+      const btn = document.getElementById('btn-add-cart');
+      btn.textContent = '✓ Đã thêm vào giỏ!';
+      btn.style.background = '#22c55e';
+      setTimeout(() => { btn.textContent = '🛒 Thêm vào giỏ hàng'; btn.style.background = ''; }, 2000);
+    });
+
+    // Buy now
+    document.getElementById('btn-buy-now').addEventListener('click', () => {
+      addToCart(p, qty);
+      window.location.href = 'cart.html';
+    });
+  }
+
+  function switchImg(src, el) {
+    document.getElementById('main-img').src = src;
+    document.querySelectorAll('#thumb-gallery > div').forEach(d => d.style.borderColor = 'var(--gray-200)');
+    el.style.borderColor = 'var(--accent)';
+  }
+
+  function showError() {
+    document.getElementById('loading-state').style.display = 'none';
+    document.getElementById('error-state').style.display = 'block';
+  }
+</script>
+</body>
+</html>

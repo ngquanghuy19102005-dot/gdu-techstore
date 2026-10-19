@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="GDU TechStore - Danh sách sản phẩm laptop và điện thoại chính hãng.">
+  <title>Sản phẩm - GDU TechStore</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="site-logo">
+      <div class="logo-icon">G</div>
+      <span class="logo-text">GDU <span>Tech</span>Store</span>
+    </a>
+    <nav class="site-nav">
+      <ul class="nav-list">
+        <li><a href="index.html">Trang chủ</a></li>
+        <li><a href="products.html">Sản phẩm</a></li>
+        <li><a href="cart.html">Giỏ hàng</a></li>
+        <li><a href="contact.html">Liên hệ</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <div class="search-bar">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input type="search" id="header-search" placeholder="Tìm kiếm..." aria-label="Tìm kiếm">
+      </div>
+      <a href="cart.html" class="cart-icon" aria-label="Giỏ hàng">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        <span class="cart-count hidden">0</span>
+      </a>
+      <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu">
+  <ul class="nav-list">
+    <li><a href="index.html">🏠 Trang chủ</a></li>
+    <li><a href="products.html">📦 Sản phẩm</a></li>
+    <li><a href="cart.html">🛒 Giỏ hàng</a></li>
+    <li><a href="contact.html">📞 Liên hệ</a></li>
+  </ul>
+</div>
+
+<main>
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <h1>Tất cả sản phẩm</h1>
+      <p>Laptop & Smartphone chính hãng, giá tốt nhất thị trường</p>
+      <nav class="breadcrumb" aria-label="Đường dẫn">
+        <a href="index.html">Trang chủ</a>
+        <span>›</span>
+        <span>Sản phẩm</span>
+      </nav>
+    </div>
+  </section>
+
+  <section style="padding:3rem 0">
+    <div class="container">
+      <!-- Filter Bar -->
+      <div class="filter-bar" role="search" aria-label="Bộ lọc sản phẩm">
+        <!-- Search -->
+        <div class="filter-group" style="flex:1;min-width:200px">
+          <label for="search-input">🔍 Tìm kiếm</label>
+          <div class="search-bar" style="width:100%;border-radius:var(--radius-sm)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            <input type="search" id="search-input" placeholder="Nhập tên sản phẩm..." aria-label="Tìm kiếm theo tên">
+          </div>
+        </div>
+
+        <!-- Category -->
+        <div class="filter-group">
+          <label for="cat-filter">📂 Danh mục</label>
+          <select id="cat-filter" class="filter-select" aria-label="Lọc theo danh mục">
+            <option value="">Tất cả</option>
+            <option value="laptop">💻 Laptop</option>
+            <option value="phone">📱 Điện thoại</option>
+          </select>
+        </div>
+
+        <!-- Price Range -->
+        <div class="filter-group">
+          <label for="price-min">💰 Giá từ (triệu)</label>
+          <input type="number" id="price-min" class="filter-input" placeholder="0" min="0" step="1" aria-label="Giá tối thiểu (triệu đồng)" style="width:110px">
+        </div>
+        <div class="filter-group">
+          <label for="price-max">đến (triệu)</label>
+          <input type="number" id="price-max" class="filter-input" placeholder="100" min="0" step="1" aria-label="Giá tối đa (triệu đồng)" style="width:110px">
+        </div>
+
+        <!-- Sort -->
+        <div class="filter-group">
+          <label for="sort-select">↕ Sắp xếp</label>
+          <select id="sort-select" class="filter-select" aria-label="Sắp xếp sản phẩm">
+            <option value="">Mặc định</option>
+            <option value="price-asc">Giá: Thấp → Cao</option>
+            <option value="price-desc">Giá: Cao → Thấp</option>
+            <option value="name-asc">Tên A → Z</option>
+            <option value="rating-desc">Đánh giá cao nhất</option>
+          </select>
+        </div>
+
+        <div class="filter-actions">
+          <button class="btn btn-ghost btn-sm" id="btn-reset">🔄 Đặt lại</button>
+          <div class="view-toggle" role="group" aria-label="Chế độ hiển thị">
+            <button class="view-btn active" id="btn-grid" aria-label="Dạng lưới" title="Dạng lưới">
+              ⊞
+            </button>
+            <button class="view-btn" id="btn-list" aria-label="Dạng danh sách" title="Dạng danh sách">
+              ☰
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Result count -->
+      <p class="result-count" id="result-count" aria-live="polite">Đang tải...</p>
+
+      <!-- Products Grid -->
+      <div id="products-grid" class="products-grid" style="margin-top:1.5rem">
+        <div class="skeleton skeleton-card"></div>
+        <div class="skeleton skeleton-card"></div>
+        <div class="skeleton skeleton-card"></div>
+        <div class="skeleton skeleton-card"></div>
+        <div class="skeleton skeleton-card"></div>
+        <div class="skeleton skeleton-card"></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;padding:2rem 0">
+      <div class="site-logo">
+        <div class="logo-icon">G</div>
+        <span class="logo-text">GDU <span>Tech</span>Store</span>
+      </div>
+      <div style="display:flex;gap:1rem;flex-wrap:wrap">
+        <a href="index.html" style="color:var(--gray-400);font-size:.875rem;transition:color .3s" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--gray-400)'">Trang chủ</a>
+        <a href="products.html" style="color:var(--gray-400);font-size:.875rem;transition:color .3s" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--gray-400)'">Sản phẩm</a>
+        <a href="contact.html" style="color:var(--gray-400);font-size:.875rem;transition:color .3s" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--gray-400)'">Liên hệ</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 GDU TechStore. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<button class="back-to-top" aria-label="Lên đầu trang">↑</button>
+
+<script src="js/utils.js"></script>
+<script>
+  let allProducts = [];
+  let currentView = 'grid';
+
+  // ===== INIT =====
+  (async function init() {
+    allProducts = await fetchProducts();
+
+    // Read URL params
+    const params = new URLSearchParams(window.location.search);
+    const urlCat = params.get('cat');
+    const urlQ = params.get('q');
+    if (urlCat) document.getElementById('cat-filter').value = urlCat;
+    if (urlQ) document.getElementById('search-input').value = urlQ;
+
+    applyFilters();
+    setupListeners();
+  })();
+
+  function setupListeners() {
+    // Real-time search
+    document.getElementById('search-input').addEventListener('input', debounce(applyFilters, 300));
+    document.getElementById('header-search').addEventListener('input', debounce(e => {
+      document.getElementById('search-input').value = e.target.value;
+      applyFilters();
+    }, 300));
+
+    // Other filters
+    ['cat-filter', 'price-min', 'price-max', 'sort-select'].forEach(id => {
+      document.getElementById(id)?.addEventListener('change', applyFilters);
+    });
+    document.getElementById('price-min').addEventListener('input', debounce(applyFilters, 400));
+    document.getElementById('price-max').addEventListener('input', debounce(applyFilters, 400));
+
+    // Reset
+    document.getElementById('btn-reset').addEventListener('click', () => {
+      document.getElementById('search-input').value = '';
+      document.getElementById('cat-filter').value = '';
+      document.getElementById('price-min').value = '';
+      document.getElementById('price-max').value = '';
+      document.getElementById('sort-select').value = '';
+      applyFilters();
+    });
+
+    // View toggle
+    document.getElementById('btn-grid').addEventListener('click', () => setView('grid'));
+    document.getElementById('btn-list').addEventListener('click', () => setView('list'));
+  }
+
+  function applyFilters() {
+    let results = [...allProducts];
+    const q = document.getElementById('search-input').value.toLowerCase().trim();
+    const cat = document.getElementById('cat-filter').value;
+    const minPrice = parseFloat(document.getElementById('price-min').value) * 1e6 || 0;
+    const maxPrice = parseFloat(document.getElementById('price-max').value) * 1e6 || Infinity;
+    const sort = document.getElementById('sort-select').value;
+
+    if (q) results = results.filter(p => p.name.toLowerCase().includes(q) || p.description.toLowerCase().includes(q));
+    if (cat) results = results.filter(p => p.category === cat);
+    results = results.filter(p => p.price >= minPrice && p.price <= maxPrice);
+
+    switch(sort) {
+      case 'price-asc': results.sort((a,b) => a.price - b.price); break;
+      case 'price-desc': results.sort((a,b) => b.price - a.price); break;
+      case 'name-asc': results.sort((a,b) => a.name.localeCompare(b.name)); break;
+      case 'rating-desc': results.sort((a,b) => b.rating - a.rating); break;
+    }
+
+    renderProducts(results);
+  }
+
+  function renderProducts(products) {
+    const grid = document.getElementById('products-grid');
+    const count = document.getElementById('result-count');
+    count.textContent = `Tìm thấy ${products.length} sản phẩm`;
+
+    if (products.length === 0) {
+      grid.innerHTML = `<div class="no-results"><div class="icon">🔍</div><h3>Không tìm thấy sản phẩm</h3><p>Thử thay đổi bộ lọc hoặc tìm kiếm từ khác.</p></div>`;
+      return;
+    }
+    grid.innerHTML = products.map(p => renderProductCard(p)).join('');
+  }
+
+  function setView(view) {
+    currentView = view;
+    const grid = document.getElementById('products-grid');
+    const btnGrid = document.getElementById('btn-grid');
+    const btnList = document.getElementById('btn-list');
+
+    if (view === 'list') {
+      grid.classList.add('list-view');
+      btnList.classList.add('active');
+      btnGrid.classList.remove('active');
+    } else {
+      grid.classList.remove('list-view');
+      btnGrid.classList.add('active');
+      btnList.classList.remove('active');
+    }
+  }
+
+  function debounce(fn, delay) {
+    let t;
+    return (...args) => { clearTimeout(t); t = setTimeout(() => fn(...args), delay); };
+  }
+</script>
+</body>
+</html>

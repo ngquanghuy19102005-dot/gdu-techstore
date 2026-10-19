@@ -1,0 +1,242 @@
+[
+  {
+    "id": 1,
+    "name": "MacBook Pro M3 14\"",
+    "category": "laptop",
+    "price": 49990000,
+    "originalPrice": 54990000,
+    "image": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=300&fit=crop",
+    "description": "MacBook Pro với chip M3 mạnh mẽ, màn hình Liquid Retina XDR 14 inch, thời lượng pin lên đến 22 giờ. Thiết kế siêu mỏng nhẹ với vỏ nhôm nguyên khối.",
+    "specs": {
+      "CPU": "Apple M3 8-core",
+      "RAM": "16GB Unified Memory",
+      "Storage": "512GB SSD",
+      "Display": "14.2\" Liquid Retina XDR",
+      "Battery": "70Wh, 22 giờ"
+    },
+    "rating": 4.9,
+    "reviews": 128,
+    "stock": 15,
+    "badge": "Mới nhất"
+  },
+  {
+    "id": 2,
+    "name": "iPhone 15 Pro Max",
+    "category": "phone",
+    "price": 34990000,
+    "originalPrice": 36990000,
+    "image": "https://images.unsplash.com/photo-1696446701796-da61c2442a2a?w=400&h=300&fit=crop",
+    "description": "iPhone 15 Pro Max với chip A17 Pro, camera 48MP ProRes, khung Titanium cứng cáp. Màn hình Super Retina XDR 6.7 inch với ProMotion 120Hz.",
+    "specs": {
+      "CPU": "Apple A17 Pro",
+      "RAM": "8GB",
+      "Storage": "256GB",
+      "Display": "6.7\" Super Retina XDR 120Hz",
+      "Camera": "48MP Main + 12MP Ultra Wide + 12MP 5x Telephoto"
+    },
+    "rating": 4.8,
+    "reviews": 256,
+    "stock": 20,
+    "badge": "Hot"
+  },
+  {
+    "id": 3,
+    "name": "Dell XPS 15 OLED",
+    "category": "laptop",
+    "price": 42500000,
+    "originalPrice": 47000000,
+    "image": "https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=400&h=300&fit=crop",
+    "description": "Dell XPS 15 với màn hình OLED 3.5K sắc nét, Intel Core i9 thế hệ 13, card đồ họa NVIDIA RTX 4060. Lý tưởng cho các nhà sáng tạo nội dung.",
+    "specs": {
+      "CPU": "Intel Core i9-13900H",
+      "RAM": "32GB DDR5",
+      "Storage": "1TB NVMe SSD",
+      "Display": "15.6\" OLED 3.5K 60Hz",
+      "GPU": "NVIDIA RTX 4060 8GB"
+    },
+    "rating": 4.7,
+    "reviews": 89,
+    "stock": 8,
+    "badge": "Sale -10%"
+  },
+  {
+    "id": 4,
+    "name": "Samsung Galaxy S24 Ultra",
+    "category": "phone",
+    "price": 31990000,
+    "originalPrice": 33990000,
+    "image": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=300&fit=crop",
+    "description": "Galaxy S24 Ultra với bút S Pen tích hợp AI, camera 200MP zoom quang học 10x, khung Titanium. Snapdragon 8 Gen 3 for Galaxy mạnh mẽ nhất.",
+    "specs": {
+      "CPU": "Snapdragon 8 Gen 3 for Galaxy",
+      "RAM": "12GB",
+      "Storage": "256GB",
+      "Display": "6.8\" Dynamic AMOLED 2X 120Hz",
+      "Camera": "200MP Main + 12MP Ultra Wide + 50MP 5x + 10MP 3x"
+    },
+    "rating": 4.8,
+    "reviews": 195,
+    "stock": 25,
+    "badge": "Bán chạy"
+  },
+  {
+    "id": 5,
+    "name": "ASUS ROG Zephyrus G16",
+    "category": "laptop",
+    "price": 55000000,
+    "originalPrice": 60000000,
+    "image": "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=400&h=300&fit=crop",
+    "description": "Laptop gaming ROG Zephyrus G16 với RTX 4090, màn hình OLED 240Hz, thiết kế mỏng nhẹ chỉ 2kg. Hiệu năng gaming đỉnh cao trong form factor di động.",
+    "specs": {
+      "CPU": "Intel Core i9-13980HX",
+      "RAM": "32GB DDR5",
+      "Storage": "2TB NVMe SSD",
+      "Display": "16\" OLED 240Hz 2560x1600",
+      "GPU": "NVIDIA RTX 4090 16GB"
+    },
+    "rating": 4.9,
+    "reviews": 67,
+    "stock": 5,
+    "badge": "Gaming"
+  },
+  {
+    "id": 6,
+    "name": "Google Pixel 8 Pro",
+    "category": "phone",
+    "price": 22990000,
+    "originalPrice": 25990000,
+    "image": "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=400&h=300&fit=crop",
+    "description": "Google Pixel 8 Pro với Tensor G3 chip, camera AI thông minh, màn hình LTPO OLED 120Hz. 7 năm cập nhật Android và bảo mật đảm bảo.",
+    "specs": {
+      "CPU": "Google Tensor G3",
+      "RAM": "12GB",
+      "Storage": "128GB",
+      "Display": "6.7\" LTPO OLED 120Hz",
+      "Camera": "50MP Main + 48MP Ultra Wide + 48MP 5x Telephoto"
+    },
+    "rating": 4.6,
+    "reviews": 143,
+    "stock": 18,
+    "badge": "Sale -12%"
+  },
+  {
+    "id": 7,
+    "name": "LG Gram 17\" 2024",
+    "category": "laptop",
+    "price": 38900000,
+    "originalPrice": 41900000,
+    "image": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=300&fit=crop",
+    "description": "LG Gram 17 siêu nhẹ chỉ 1.35kg, màn hình IPS 17 inch, pin 80Wh sử dụng 24+ giờ. Chuẩn quân sự MIL-STD-810H bền bỉ.",
+    "specs": {
+      "CPU": "Intel Core Ultra 7 155H",
+      "RAM": "16GB LPDDR5",
+      "Storage": "512GB NVMe SSD",
+      "Display": "17\" IPS 2560x1600 60Hz",
+      "Battery": "80Wh, 24+ giờ"
+    },
+    "rating": 4.5,
+    "reviews": 54,
+    "stock": 12,
+    "badge": "Siêu nhẹ"
+  },
+  {
+    "id": 8,
+    "name": "OnePlus 12",
+    "category": "phone",
+    "price": 17990000,
+    "originalPrice": 19990000,
+    "image": "https://images.unsplash.com/photo-1567581935884-3349723552ca?w=400&h=300&fit=crop",
+    "description": "OnePlus 12 với Snapdragon 8 Gen 3, sạc siêu nhanh 100W SUPERVOOC, camera Hasselblad chuyên nghiệp. Màn hình LTPO3 AMOLED 120Hz mượt mà.",
+    "specs": {
+      "CPU": "Snapdragon 8 Gen 3",
+      "RAM": "16GB LPDDR5X",
+      "Storage": "512GB UFS 4.0",
+      "Display": "6.82\" LTPO3 AMOLED 120Hz",
+      "Charging": "100W SUPERVOOC + 50W Wireless"
+    },
+    "rating": 4.7,
+    "reviews": 112,
+    "stock": 30,
+    "badge": "Giá tốt"
+  },
+  {
+    "id": 9,
+    "name": "MacBook Air M2 13\"",
+    "category": "laptop",
+    "price": 28990000,
+    "originalPrice": 30990000,
+    "image": "https://images.unsplash.com/photo-1611186871525-855e2a30e836?w=400&h=300&fit=crop",
+    "description": "MacBook Air M2 - mỏng nhẹ nhất trong dòng MacBook, không quạt tản nhiệt hoàn toàn im lặng. Màn hình Liquid Retina 13.6 inch rực rỡ.",
+    "specs": {
+      "CPU": "Apple M2 8-core",
+      "RAM": "8GB Unified Memory",
+      "Storage": "256GB SSD",
+      "Display": "13.6\" Liquid Retina",
+      "Battery": "52.6Wh, 18 giờ"
+    },
+    "rating": 4.8,
+    "reviews": 321,
+    "stock": 22,
+    "badge": "Phổ biến"
+  },
+  {
+    "id": 10,
+    "name": "Samsung Galaxy A54",
+    "category": "phone",
+    "price": 8990000,
+    "originalPrice": 9990000,
+    "image": "https://images.unsplash.com/photo-1578345547584-7553e3a0e890?w=400&h=300&fit=crop",
+    "description": "Galaxy A54 tầm trung với camera 50MP, màn hình Super AMOLED 120Hz, pin 5000mAh, chống nước IP67. Lựa chọn tuyệt vời trong phân khúc giá.",
+    "specs": {
+      "CPU": "Exynos 1380",
+      "RAM": "8GB",
+      "Storage": "128GB",
+      "Display": "6.4\" Super AMOLED 120Hz",
+      "Camera": "50MP + 12MP + 5MP"
+    },
+    "rating": 4.4,
+    "reviews": 287,
+    "stock": 50,
+    "badge": "Tầm trung"
+  },
+  {
+    "id": 11,
+    "name": "Lenovo ThinkPad X1 Carbon",
+    "category": "laptop",
+    "price": 45000000,
+    "originalPrice": 49000000,
+    "image": "https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=400&h=300&fit=crop",
+    "description": "ThinkPad X1 Carbon Gen 11 - laptop doanh nhân đỉnh cao, siêu nhẹ 1.12kg, bàn phím huyền thoại, bảo mật doanh nghiệp. Intel vPro thế hệ 13.",
+    "specs": {
+      "CPU": "Intel Core i7-1365U vPro",
+      "RAM": "32GB LPDDR5",
+      "Storage": "1TB NVMe SSD",
+      "Display": "14\" IPS 2.8K OLED 60Hz",
+      "Battery": "57Wh, 15 giờ"
+    },
+    "rating": 4.7,
+    "reviews": 76,
+    "stock": 9,
+    "badge": "Doanh nhân"
+  },
+  {
+    "id": 12,
+    "name": "Xiaomi 14 Ultra",
+    "category": "phone",
+    "price": 25990000,
+    "originalPrice": 27990000,
+    "image": "https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?w=400&h=300&fit=crop",
+    "description": "Xiaomi 14 Ultra với camera Leica 1-inch, Snapdragon 8 Gen 3, sạc HyperCharge 90W. Màn hình LTPO AMOLED 6.73 inch 2K+ siêu đẹp.",
+    "specs": {
+      "CPU": "Snapdragon 8 Gen 3",
+      "RAM": "16GB LPDDR5X",
+      "Storage": "512GB UFS 4.0",
+      "Display": "6.73\" LTPO AMOLED 2K+ 120Hz",
+      "Camera": "50MP 1-inch Leica + 50MP Ultra Wide + 50MP 5x + 50MP 3.2x"
+    },
+    "rating": 4.8,
+    "reviews": 134,
+    "stock": 14,
+    "badge": "Camera King"
+  }
+]

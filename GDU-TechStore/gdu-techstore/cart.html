@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Giỏ hàng - GDU TechStore</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="site-logo">
+      <div class="logo-icon">G</div>
+      <span class="logo-text">GDU <span>Tech</span>Store</span>
+    </a>
+    <nav class="site-nav">
+      <ul class="nav-list">
+        <li><a href="index.html">Trang chủ</a></li>
+        <li><a href="products.html">Sản phẩm</a></li>
+        <li><a href="cart.html">Giỏ hàng</a></li>
+        <li><a href="contact.html">Liên hệ</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <div class="search-bar">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input type="search" placeholder="Tìm kiếm..." aria-label="Tìm kiếm">
+      </div>
+      <a href="cart.html" class="cart-icon" aria-label="Giỏ hàng">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        <span class="cart-count hidden">0</span>
+      </a>
+      <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu">
+  <ul class="nav-list">
+    <li><a href="index.html">🏠 Trang chủ</a></li>
+    <li><a href="products.html">📦 Sản phẩm</a></li>
+    <li><a href="cart.html">🛒 Giỏ hàng</a></li>
+    <li><a href="contact.html">📞 Liên hệ</a></li>
+  </ul>
+</div>
+
+<main>
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <h1>🛒 Giỏ hàng của bạn</h1>
+      <p id="cart-hero-count">Đang tải...</p>
+      <nav class="breadcrumb" aria-label="Đường dẫn">
+        <a href="index.html">Trang chủ</a>
+        <span>›</span>
+        <span>Giỏ hàng</span>
+      </nav>
+    </div>
+  </section>
+
+  <section style="padding:3rem 0">
+    <div class="container">
+      <!-- Empty Cart -->
+      <div class="cart-empty" id="cart-empty" style="display:none" role="status">
+        <div class="icon">🛒</div>
+        <h2>Giỏ hàng trống</h2>
+        <p style="margin-bottom:2rem">Bạn chưa có sản phẩm nào trong giỏ hàng.</p>
+        <a href="products.html" class="btn btn-primary">← Tiếp tục mua sắm</a>
+      </div>
+
+      <!-- Cart Content -->
+      <div class="cart-layout" id="cart-content">
+        <!-- Items -->
+        <div>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem">
+            <h2 style="font-size:1.1rem">Sản phẩm</h2>
+            <button class="btn btn-ghost btn-sm" id="btn-clear-cart" onclick="clearCart()">🗑 Xóa tất cả</button>
+          </div>
+          <div class="cart-items" id="cart-items" role="list" aria-label="Sản phẩm trong giỏ hàng">
+            <!-- Items injected -->
+          </div>
+          <div style="margin-top:1.5rem">
+            <a href="products.html" style="color:var(--accent);font-weight:600;display:inline-flex;align-items:center;gap:.5rem;font-size:.875rem;transition:gap .3s" onmouseover="this.style.gap='.75rem'" onmouseout="this.style.gap='.5rem'">← Tiếp tục mua sắm</a>
+          </div>
+        </div>
+
+        <!-- Summary -->
+        <aside class="cart-summary" aria-label="Tóm tắt đơn hàng">
+          <h3>Tóm tắt đơn hàng</h3>
+          
+          <div class="summary-row">
+            <span>Tạm tính (<span id="total-items">0</span> sản phẩm)</span>
+            <span id="subtotal">0đ</span>
+          </div>
+          <div class="summary-row">
+            <span>Phí vận chuyển</span>
+            <span id="shipping-fee" style="color:#22c55e;font-weight:600">Miễn phí</span>
+          </div>
+          <div class="summary-row">
+            <span>Giảm giá</span>
+            <span id="discount-amount" style="color:var(--accent)">-0đ</span>
+          </div>
+
+          <!-- Promo Code -->
+          <div class="promo-input">
+            <input type="text" class="filter-input" id="promo-code" placeholder="Nhập mã giảm giá" aria-label="Mã giảm giá" style="flex:1">
+            <button class="btn btn-dark btn-sm" onclick="applyPromo()">Áp dụng</button>
+          </div>
+          <p id="promo-msg" style="font-size:.8rem;margin-top:-.5rem;margin-bottom:.5rem"></p>
+
+          <div class="summary-row total">
+            <span>Tổng cộng</span>
+            <span class="price" id="total-price">0đ</span>
+          </div>
+
+          <button class="btn btn-primary" id="btn-checkout" style="width:100%;margin-top:1.25rem;padding:1rem;font-size:1rem" onclick="handleCheckout()">
+            Tiến hành thanh toán →
+          </button>
+
+          <div style="display:flex;justify-content:center;gap:1rem;margin-top:1rem;opacity:.6;font-size:.75rem">
+            <span>🔒 SSL Secure</span>
+            <span>💳 Thanh toán an toàn</span>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:2rem 0;flex-wrap:wrap;gap:1rem">
+      <div class="site-logo">
+        <div class="logo-icon">G</div>
+        <span class="logo-text">GDU <span>Tech</span>Store</span>
+      </div>
+      <p style="color:var(--gray-600);font-size:.875rem">© 2025 GDU TechStore. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<button class="back-to-top" aria-label="Lên đầu trang">↑</button>
+
+<script src="js/utils.js"></script>
+<script>
+  const PROMO_CODES = {
+    'GDU10': 0.10,
+    'SUMMER20': 0.20,
+    'TECH15': 0.15,
+  };
+  let discountRate = 0;
+
+  function renderCart() {
+    const cart = getCart();
+    const itemsEl = document.getElementById('cart-items');
+    const emptyEl = document.getElementById('cart-empty');
+    const contentEl = document.getElementById('cart-content');
+    const heroCount = document.getElementById('cart-hero-count');
+
+    if (cart.length === 0) {
+      emptyEl.style.display = 'block';
+      contentEl.style.display = 'none';
+      heroCount.textContent = 'Giỏ hàng trống';
+      return;
+    }
+
+    emptyEl.style.display = 'none';
+    contentEl.style.display = 'grid';
+    heroCount.textContent = `${cart.reduce((s, i) => s + i.qty, 0)} sản phẩm`;
+
+    itemsEl.innerHTML = cart.map((item, idx) => `
+      <article class="cart-item" role="listitem" aria-label="${item.name}">
+        <div class="cart-item-img">
+          <img src="${item.image}" alt="${item.name}" loading="lazy"
+               onerror="this.src='https://via.placeholder.com/100x80?text=No+Image'">
+        </div>
+        <div class="cart-item-info">
+          <div class="cart-item-cat">${item.category === 'laptop' ? '💻 Laptop' : '📱 Điện thoại'}</div>
+          <h3 class="cart-item-name">
+            <a href="detail.html?id=${item.id}" style="color:inherit;transition:color .3s" 
+               onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='inherit'">
+              ${item.name}
+            </a>
+          </h3>
+          <div class="cart-item-controls" role="group" aria-label="Số lượng ${item.name}">
+            <button class="qty-btn" onclick="changeQty(${idx}, -1)" aria-label="Giảm số lượng">−</button>
+            <span class="qty-display" aria-live="polite">${item.qty}</span>
+            <button class="qty-btn" onclick="changeQty(${idx}, 1)" aria-label="Tăng số lượng">+</button>
+            <span style="font-size:.75rem;color:var(--gray-500)">(Còn ${item.stock})</span>
+          </div>
+        </div>
+        <div class="cart-item-right">
+          <div class="cart-item-price">${formatVND(item.price * item.qty)}</div>
+          <div style="font-size:.78rem;color:var(--gray-400)">${formatVND(item.price)} × ${item.qty}</div>
+          <button class="btn-remove" onclick="removeItem(${idx})" aria-label="Xóa ${item.name} khỏi giỏ">
+            🗑 Xóa
+          </button>
+        </div>
+      </article>`).join('');
+
+    updateSummary(cart);
+  }
+
+  function changeQty(idx, delta) {
+    const cart = getCart();
+    const item = cart[idx];
+    const newQty = item.qty + delta;
+    if (newQty < 1) { removeItem(idx); return; }
+    if (newQty > item.stock) {
+      showToast('Cảnh báo', `Chỉ còn ${item.stock} sản phẩm trong kho!`, 'error');
+      return;
+    }
+    cart[idx].qty = newQty;
+    saveCart(cart);
+    renderCart();
+  }
+
+  function removeItem(idx) {
+    const cart = getCart();
+    const name = cart[idx].name;
+    cart.splice(idx, 1);
+    saveCart(cart);
+    renderCart();
+    showToast('Đã xóa', `${name} đã được xóa khỏi giỏ hàng.`);
+  }
+
+  function clearCart() {
+    if (!confirm('Bạn có chắc muốn xóa tất cả sản phẩm khỏi giỏ hàng?')) return;
+    saveCart([]);
+    renderCart();
+    showToast('Đã xóa', 'Giỏ hàng đã được làm trống.', 'error');
+  }
+
+  function updateSummary(cart) {
+    const subtotal = cart.reduce((s, i) => s + i.price * i.qty, 0);
+    const totalItems = cart.reduce((s, i) => s + i.qty, 0);
+    const discount = subtotal * discountRate;
+    const total = subtotal - discount;
+    const shipping = subtotal >= 5000000 ? 0 : 50000;
+
+    document.getElementById('total-items').textContent = totalItems;
+    document.getElementById('subtotal').textContent = formatVND(subtotal);
+    document.getElementById('shipping-fee').textContent = shipping === 0 ? 'Miễn phí' : formatVND(shipping);
+    document.getElementById('discount-amount').textContent = `-${formatVND(discount)}`;
+    document.getElementById('total-price').textContent = formatVND(total + shipping);
+  }
+
+  function applyPromo() {
+    const code = document.getElementById('promo-code').value.toUpperCase().trim();
+    const msgEl = document.getElementById('promo-msg');
+
+    if (PROMO_CODES[code]) {
+      discountRate = PROMO_CODES[code];
+      msgEl.textContent = `✅ Áp dụng thành công! Giảm ${discountRate * 100}%`;
+      msgEl.style.color = '#22c55e';
+      showToast('Mã giảm giá!', `Áp dụng mã ${code} - Giảm ${discountRate * 100}%`, 'success');
+      renderCart();
+    } else {
+      msgEl.textContent = '❌ Mã giảm giá không hợp lệ.';
+      msgEl.style.color = '#ef4444';
+    }
+  }
+
+  function handleCheckout() {
+    const cart = getCart();
+    if (cart.length === 0) return;
+    showToast('Thành công!', 'Đơn hàng đã được đặt thành công! Chúng tôi sẽ liên hệ sớm.', 'success');
+    setTimeout(() => {
+      saveCart([]);
+      renderCart();
+    }, 2000);
+  }
+
+  // Allow pressing Enter on promo input
+  document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('promo-code').addEventListener('keydown', e => {
+      if (e.key === 'Enter') applyPromo();
+    });
+  });
+
+  renderCart();
+</script>
+</body>
+</html>
